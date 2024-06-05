@@ -31,7 +31,7 @@ function App() {
 
         <img src="https://content-management-files.canva.com/cdn-cgi/image/f=auto,q=70/1bcedaff-72ea-4cf0-a688-4c8b5a54a87a/websites_how-to_2x.png" width={1600} height={730} alt="" />
 
-<div style={{position: 'fixed', top: position.y, left:position.x}}> yorum yazmak için tıkla</div>
+
         {mode && (<div> yorum modu aktif </div>)}
       </div>
     </>
