@@ -54,6 +54,7 @@ function App() {
   }
   const data = {
     position,
+    boxPosition,
   }
   return (
     <>
