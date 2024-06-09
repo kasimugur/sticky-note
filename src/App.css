@@ -26,3 +26,9 @@
   color: #fff;
   transform: translateX(-50%);
 }
+.note-box{
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+  z-index: 4;
+}

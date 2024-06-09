@@ -6,7 +6,7 @@ export default function Note(note) {
       position: 'absolute', top: note.position.y, left: note.position.x
     }}>
 
-      note
+      
     </div>
     </>
   )

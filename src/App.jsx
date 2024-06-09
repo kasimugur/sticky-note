@@ -38,19 +38,23 @@ function App() {
   const handleKeyUp = (e) => {
     if (e.key === 'c')
       setMode(!mode)
+    setBoxVisible(false)
   }
   const handleMouseMove = (e) => {
     setPosition({
       x: e.pageX,
       y: e.pageY
     })
-    setBoxVisible(true)
+    // setBoxVisible(true)
   }
   const handleClick = (e) => {
-    setBoxPosition({
-      x: position.x,
-      y: position.y
-    })
+    if (mode) {
+      setBoxPosition({
+        x: position.x,
+        y: position.y
+      })
+      setBoxVisible(true)
+    }
   }
   const data = {
     position,
