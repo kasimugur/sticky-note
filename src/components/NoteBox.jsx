@@ -38,6 +38,7 @@ export default function NoteBox() {
           ))}
         </select>
         <textarea cols="20" rows="5" placeholder="notunuzu giriniz" />
+        <button> ekle</button>
       </div>
     </>
   )
