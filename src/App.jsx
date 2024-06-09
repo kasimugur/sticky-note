@@ -59,6 +59,8 @@ function App() {
   const data = {
     position,
     boxPosition,
+    setMode,
+    notes,
   }
   return (
     <>
@@ -67,12 +69,13 @@ function App() {
           onMouseMove={handleMouseMove}
           tabIndex={0} onKeyUp={handleKeyUp}
           onClick={handleClick}
-          className={`screen ${mode && 'editable'}`}>
+          className={`screen ${mode && 'editable'}`}
+          >
 
           <img src="https://content-management-files.canva.com/cdn-cgi/image/f=auto,q=70/1bcedaff-72ea-4cf0-a688-4c8b5a54a87a/websites_how-to_2x.png" width={1600} height={730} alt="" />
 
           {mode && <LeaveCommentText />}
-          {notes && notes.map(note => <Note {...note} />)}
+          {notes && notes.map((note, index) => <Note key={index} {...note} />)}
           {mode && (<div> yorum modu aktif </div>)}
           {boxVisible && <NoteBox />}
         </div>

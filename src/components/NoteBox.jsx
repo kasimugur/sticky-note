@@ -1,17 +1,16 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { MainContext } from "../context"
 
 export default function NoteBox() {
-  const { boxPosition } = useContext(MainContext)
   const types = [
     {
-      name: "comment" ,
+      name: "comment",
       color: "red",
-      text:   "yorum"
+      text: "yorum"
     },
     {
       name: "private-comment",
-      color: "#999" ,
+      color: "#999",
       text: "gizli yorum"
     },
     {
@@ -20,15 +19,25 @@ export default function NoteBox() {
       text: "Not"
     }
   ]
-
+  const { boxPosition, setMode, notes } = useContext(MainContext)
+  const [color, setColor] = useState(types[0].color)
+  const changeColor = (e) => {
+    setColor(e.target.value)
+  }
   return (
     <>
-      <div className="note-box" style={{position: 'absolute' , top: boxPosition.y , left: boxPosition.x}}>
-        <select>
-          {types.map(type => (
-            <option value={type.name} >{type.name} </option>
+      <div
+        onMouseEnter={() => setMode(false)}
+        onMouseLeave={() => setMode(true)}
+        className="note-box"
+        style={{ "--color": color, position: 'absolute', top: boxPosition.y, left: boxPosition.x }}>
+        <span className="note-box-number">{notes.length + 1} </span>
+        <select onChange={changeColor}>
+          {types.map((type, index) => (
+            <option key={index} value={type.color} >{type.text} </option>
           ))}
         </select>
+        <textarea cols="30" rows="10" placeholder="notunuzu giriniz" />
       </div>
     </>
   )
