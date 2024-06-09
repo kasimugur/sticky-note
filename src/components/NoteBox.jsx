@@ -34,10 +34,10 @@ export default function NoteBox() {
         <span className="note-box-number">{notes.length + 1} </span>
         <select onChange={changeColor}>
           {types.map((type, index) => (
-            <option key={index} value={type.color} >{type.text} </option>
+            <option style={{opacity: 0.5}} key={index} value={type.color} >{type.text} </option>
           ))}
         </select>
-        <textarea cols="30" rows="10" placeholder="notunuzu giriniz" />
+        <textarea cols="20" rows="5" placeholder="notunuzu giriniz" />
       </div>
     </>
   )

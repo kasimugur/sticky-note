@@ -76,7 +76,6 @@ function App() {
 
           {mode && <LeaveCommentText />}
           {notes && notes.map((note, index) => <Note key={index} {...note} />)}
-          {mode && (<div> yorum modu aktif </div>)}
           {boxVisible && <NoteBox />}
         </div>
       </MainContext.Provider>

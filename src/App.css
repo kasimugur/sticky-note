@@ -50,8 +50,22 @@
   cursor: pointer;
 }
 
+.note-box textarea{
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-family: Arial, sans-serif;
+}
+.note-box textarea:focus {
+  border-color: #000;
+}
+
 .note-box-number {
   position: absolute;
+  opacity: .7;
   top: 0;
   left: 50%;
   transform: translateX(-50%) translateY(calc(-100% - 20px));
@@ -62,4 +76,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.note-box-number:hover{
+  opacity: 1;
+  cursor: pointer;
 }
