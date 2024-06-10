@@ -9,6 +9,8 @@ export default function Note(note) {
         <div className="note-container" style={{
           '--color': note.color,
           position: 'absolute',
+          top: 0,
+          left:0
         }}>
           <span onClick={() => setVisible(!visible)} className="note-box-number">{(note.number + 1) - 1} </span>
           <div className="note" style={{ display: visible ? 'flex' : 'none' }}>

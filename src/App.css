@@ -22,11 +22,12 @@
 
 .note-container {
   background: var(--color);
-  max-width: 300px;
-  transform: translateX(-50%) translateY(40px);
+  width: 300px;
+  margin-top: 40px;
+  margin-left: -150px;
 }
 
-.note{
+.note-container .note{
   padding: 5px 10px;
   border-radius: 4px;
   color: #fff;
