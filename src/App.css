@@ -20,14 +20,18 @@
   font-size: 14px;
 }
 
-.note {
+.note-container {
   background: var(--color);
+  max-width: 300px;
+  transform: translateX(-50%) translateY(40px);
+}
+
+.note{
   padding: 5px 10px;
   border-radius: 4px;
   color: #fff;
-  transform: translateX(-50%);
-}
 
+}
 .note-box {
   padding: 20px;
   background: #fff;
