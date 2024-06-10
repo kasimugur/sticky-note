@@ -36,16 +36,15 @@ function App() {
   }
   const handleMouseMove = (e) => {
     setPosition({
-      x: e.pageX,
-      y: e.pageY
+      x: [e.pageX, e.clientX],
+      y: [e.pageY, e.clientY],
     })
-    // setBoxVisible(true)
   }
   const handleClick = (e) => {
     if (mode) {
       setBoxPosition({
-        x: position.x,
-        y: position.y
+        x: position.x[0],
+        y: position.y[0],
       })
       setBoxVisible(true)
     }

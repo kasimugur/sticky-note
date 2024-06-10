@@ -34,7 +34,7 @@ export default function NoteBox() {
       color,
       position: {
         x: boxPosition.x,
-        y: boxPosition.y
+        y: boxPosition.y,
       }
     }
     setNotes([...notes, currentNote])

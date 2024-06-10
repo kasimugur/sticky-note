@@ -13,13 +13,23 @@ export default function Note(note) {
     }
   }
   const setNotPosition = (e, data) => {
-const currentNote = notes.find(n => n.number === note.number);
-currentNote.position = {
-  x: data.x,
-  y: data.y
-}
-setNotes([...notes.filter(n => n.number !== note.number), currentNote])
+// const currentNote = notes.find(n => n.number === note.number);
+// currentNote.position = {
+//   x: data.x,
+//   y: data.y
+// }
+// setNotes([...notes.filter(n => n.number !== note.number), currentNote])
+const newNotes = notes.map(n => {
+  if (n.number === note.number){
+    n.position = {
+      x: data.x,
+      y: data.y,
+    }
   }
+  return n
+})  
+setNotes(newNotes)
+}
   return (
     <>
       <Draggable onDrag={() => setClickable(false)}
