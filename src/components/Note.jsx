@@ -4,10 +4,27 @@ import { MainContext } from "../context"
 
 export default function Note(note) {
   const [visible, setVisible] = useState(false)
-  const { setMode } = useContext(MainContext)
+  const [clickable, setClickable] = useState(true)
+  const { setMode, notes, setNotes } = useContext(MainContext)
+
+  const showNote = () => {
+    if (clickable) {
+      setVisible(!visible)
+    }
+  }
+  const setNotPosition = (e, data) => {
+const currentNote = notes.find(n => n.number === note.number);
+currentNote.position = {
+  x: data.x,
+  y: data.y
+}
+setNotes([...notes.filter(n => n.number !== note.number), currentNote])
+  }
   return (
     <>
-      <Draggable defaultPosition={{ x: note.position.x, y: note.position.y }}>
+      <Draggable onDrag={() => setClickable(false)}
+      onStart={() => setClickable(true)} onStop={setNotPosition}
+      defaultPosition={{ x: note.position.x, y: note.position.y }}>
         <div
           onMouseEnter={() => setMode(false)}
           onMouseLeave={() => setMode(true)}
@@ -17,7 +34,7 @@ export default function Note(note) {
             top: 0,
             left: 0
           }}>
-          <span onClick={() => setVisible(!visible)} className="note-box-number">{(note.number + 1) - 1} </span>
+          <span onClick={showNote} className="note-box-number">{(note.number + 1) - 1} </span>
           <div className="note" style={{ display: visible ? 'flex' : 'none' }}>
             {note.note}
           </div>
