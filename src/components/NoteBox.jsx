@@ -39,6 +39,7 @@ export default function NoteBox() {
     }
     setNotes([...notes, currentNote])
     setBoxVisible(false)
+    setMode(true)
   }
   return (
     <>
