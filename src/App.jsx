@@ -14,6 +14,7 @@ function App() {
     {
       id: "1",
       note: "bu bir test notes",
+      number: 1,
       color: "purple",
       position: {
         x: 350,
@@ -36,9 +37,10 @@ function App() {
   }, [])
 
   const handleKeyUp = (e) => {
-    if (e.key === 'c')
+    if (e.key === 'c') {
       setMode(!mode)
     setBoxVisible(false)
+      }
   }
   const handleMouseMove = (e) => {
     setPosition({
@@ -61,6 +63,8 @@ function App() {
     boxPosition,
     setMode,
     notes,
+    setNotes,
+    setBoxVisible,
   }
   return (
     <>
@@ -70,7 +74,7 @@ function App() {
           tabIndex={0} onKeyUp={handleKeyUp}
           onClick={handleClick}
           className={`screen ${mode && 'editable'}`}
-          >
+        >
 
           <img src="https://content-management-files.canva.com/cdn-cgi/image/f=auto,q=70/1bcedaff-72ea-4cf0-a688-4c8b5a54a87a/websites_how-to_2x.png" width={1600} height={730} alt="" />
 

@@ -19,10 +19,26 @@ export default function NoteBox() {
       text: "Not"
     }
   ]
-  const { boxPosition, setMode, notes } = useContext(MainContext)
+  const {
+     boxPosition, setMode, notes, setNotes, setBoxVisible 
+    } = useContext(MainContext)
   const [color, setColor] = useState(types[0].color)
+  const [note, setNote] = useState('')
   const changeColor = (e) => {
     setColor(e.target.value)
+  }
+  const addNote = () => {
+const currentNote = {
+  note ,
+  number:  notes.length + 1,
+  color,
+  position: {
+    x: boxPosition.x,
+    y: boxPosition.y
+  }
+}
+setNotes([...notes, currentNote])
+setBoxVisible(false)
   }
   return (
     <>
@@ -37,8 +53,10 @@ export default function NoteBox() {
             <option style={{opacity: 0.5}} key={index} value={type.color} >{type.text} </option>
           ))}
         </select>
-        <textarea cols="20" rows="5" placeholder="notunuzu giriniz" />
-        <button> ekle</button>
+        <textarea 
+        onChange={(e) => setNote(e.target.value)} 
+        cols="30" rows="5" placeholder="notunuzu giriniz" />
+        <button onClick={addNote} disabled={!note}> ekle</button>
       </div>
     </>
   )
